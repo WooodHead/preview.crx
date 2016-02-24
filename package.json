@@ -1,7 +1,7 @@
 {
-  "name": "preview.crx",
-  "version": "0.0.9",
-  "description": "A simple Chrome extension that shows Chameleon on your site",
+  "name": "chameleon-admin-preview",
+  "version": "0.1.0",
+  "description": "A simple Chrome extension that shows Chameleon on your site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",
   "dependencies": {

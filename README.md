@@ -1,4 +1,15 @@
-## Skeleton for Google Chrome extensions
+# Chameleon Admin Preview (Google Chrome extension)
+
+1. Authenticate with the special `extension auth token`
+ - From the console [user.id, user.tokens.last, account.id, account.token.join('|')
+2. Enter the url that you want the admin preview to show on
+3. Save and reload the page (or open the target url in a new tab).
+
+######The original README is below for setup
+
+---------------------------
+
+##Skeleton for Google Chrome extensions
 
 * includes awesome messaging module
 * grunt-based build system
@@ -8,8 +19,8 @@
 
 ### Installation:
 
-    git clone git@github.com:salsita/chrome-extension-skeleton.git
-    
+    git clone git@github.com/trychameleon/preview.crx.git
+
     # in case you don't have Grunt yet:
     sudo npm install -g grunt-cli
 
@@ -24,21 +35,21 @@
     /build             # this is where your extension (.crx) will end up,
                        # along with unpacked directories of production and
                        # develop build (for debugging)
-    
+
     /code
         /css           # CSS files
         /html          # HTML files
         /images        # image resources
-    
+
         /js            # entry-points for browserify, requiring node.js `modules`
-    
+
             /libs      # 3rd party run-time libraries, excluded from JS-linting
             /modules   # node.js modules (and corresponding mocha
                        #   unit tests spec files)
-    
+
         manifest.json  # skeleton manifest file, `name`, `description`
                        #   and `version` fields copied from `package.json`
-    
+
     Gruntfile.js       # grunt tasks (see below)
     circle.yml         # integration with CircleCI
     crxmake.sh         # official build script for packing Chromium extensions
