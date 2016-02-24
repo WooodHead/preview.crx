@@ -1,8 +1,11 @@
 {
-  "name": "extension-skeleton",
-  "version": "0.1.2",
-  "description": "Bare Google Chrome extension skeleton.",
-  "dependencies": {},
+  "name": "preview.crx",
+  "version": "0.0.9",
+  "description": "A simple Chrome extension that shows Chameleon on your site",
+  "repository": "git@github.com:trychameleon/preview.crx.git",
+  "license": "MIT",
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-clean": "~0.6.0",

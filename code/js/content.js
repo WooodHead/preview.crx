@@ -1,19 +1,48 @@
 ;(function() {
-  console.log('CONTENT SCRIPT WORKS!');
+  console.log('Chameleon Extension booting on: ');
 
-  var $ = require('./libs/jquery');
-  // here we use SHARED message handlers, so all the contexts support the same
-  // commands. but this is NOT typical messaging system usage, since you usually
-  // want each context to handle different commands. for this you don't need
-  // handlers factory as used below. simply create individual `handlers` object
-  // for each context and pass it to msg.init() call. in case you don't need the
-  // context to support any commands, but want the context to cooperate with the
-  // rest of the extension via messaging system (you want to know when new
-  // instance of given context is created / destroyed, or you want to be able to
-  // issue command requests from this context), you may simply omit the
-  // `handlers` parameter for good when invoking msg.init()
-  var handlers = require('./modules/handlers').create('ct');
-  require('./modules/msg').init('ct', handlers);
+  var settings = ['userId', 'userToken', 'accountId', 'accountToken', 'accountUrl'];
 
-  console.log('jQuery version:', $().jquery);
+  chrome.storage.local.get(settings, function(o) {
+    console.log('Content settings', window.location.href, document.location.href);
+
+    if(!o.accountUrl || document.location.href.indexOf(o.accountUrl) === -1) {
+      return;
+    }
+
+    var string = "(function(doc,win) { \
+      var chmln = 'chmln', \
+        names = 'setup identify alias track set show on off custom help _data'.split(' '); \
+ \
+      console.log('setting up chameleon', win, doc); \
+ \
+      win[chmln] || (win[chmln] = {}); \
+      win[chmln].accountToken = '"+o.accountToken+"'; \
+      win[chmln].location = win.location.href.toString(); \
+      win[chmln].adminPreview = true; \
+      win[chmln].auth = { \
+        user: { id: '"+o.userId+"', token: '"+o.userToken+"' }, \
+        account: { id: '"+o.accountId+"' } \
+      }; \
+ \
+      for(var i = 0; i<names.length; i++) { \
+        (function() { \
+          var calls = win[chmln][names[i]+'_a'] = []; \
+          win[chmln][names[i]] = function() { \
+            calls.push(arguments); \
+          }; \
+        })(); \
+      } \
+ \
+      var script = doc.createElement('script'); \
+      script.src = 'https://hyoid.trychameleon.com/messo/'+'"+o.accountToken+"'+'/messo.min.js?user-id='+'"+o.userId+"'+'&admin-preview=true'; \
+      script.async = true; \
+      doc.head.appendChild(script); \
+    })(document,window);";
+
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.innerHTML = string;
+    document.head.appendChild(script);
+  });
 })();
