@@ -10,11 +10,7 @@ var $ = require('../libs/jquery'),
   request = require('../modules/request');
 
 module.exports = function(callback) {
-  console.log('Form init');
-
   $(function() {
-    console.log($('#popup-form'));
-
     $('#popup-form').on('submit', function(e) {
       e.stopPropagation();
       e.preventDefault();
@@ -45,8 +41,6 @@ module.exports = function(callback) {
         accountToken: parts[3],
         accountUrl: $url.val()
       };
-
-      console.log('Settings saving', options);
 
       chrome.storage.local.set(options, function() {
         console.log('Settings saved', options);

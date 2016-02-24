@@ -1,11 +1,7 @@
 ;(function() {
-  console.log('Chameleon Extension booting on: ');
-
   var settings = ['userId', 'userToken', 'accountId', 'accountToken', 'accountUrl'];
 
   chrome.storage.local.get(settings, function(o) {
-    console.log('Content settings', window.location.href, document.location.href);
-
     if(!o.accountUrl || document.location.href.indexOf(o.accountUrl) === -1) {
       return;
     }
@@ -13,8 +9,6 @@
     var string = "(function(doc,win) { \
       var chmln = 'chmln', \
         names = 'setup identify alias track set show on off custom help _data'.split(' '); \
- \
-      console.log('setting up chameleon', win, doc); \
  \
       win[chmln] || (win[chmln] = {}); \
       win[chmln].accountToken = '"+o.accountToken+"'; \
