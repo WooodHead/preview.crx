@@ -17,30 +17,36 @@ module.exports = function(callback) {
 
       var $token = $('#crx-token'),
         $url = $('#account-urls'),
-        invalid = false;
+        parts = $token.val().split('|'),
+        url = $url.val(),
+        options = {}, invalid = false;
 
-      var parts = $token.val().split('|'),
-        url = $url.val();
-
-      if(parts.length !== 4) {
+      if(parts.length === 0) {
+      } else if(parts.length === 4) {
+        options.userId = parts[0];
+        options.userToken = parts[1];
+        options.accountId = parts[2];
+        options.accountToken = parts[3];
+      } else if(parts.length === 2) {
+        options.accountId = parts[0];
+        options.accountToken = parts[1];
+      } else {
         $token.addClass('invalid');
         invalid = true;
       }
 
-      if(!/.+\..+/.test(url)) {
+      if(url && !/.+\..+/.test(url)) {
         $url.addClass('invalid');
         invalid = true;
+      } else {
+        options.accountUrl = url;
       }
 
-      if(invalid) return;
+      if(invalid) {
+        console.log('Saving did not happen because a field was invalid.\n\n\tThe account token should 2 or 4 parts separated by a vertical pipe (|)\n\n\tThe url should each match /.+\..+/', options, parts, url);
 
-      var options = {
-        userId: parts[0],
-        userToken: parts[1],
-        accountId: parts[2],
-        accountToken: parts[3],
-        accountUrl: $url.val()
-      };
+        return;
+      }
 
       chrome.storage.local.set(options, function() {
         console.log('Settings saved', options);
