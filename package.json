@@ -1,6 +1,6 @@
 {
   "name": "chameleon-admin-preview",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple Chrome extension that shows Chameleon on your site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",
