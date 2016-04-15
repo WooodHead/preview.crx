@@ -1,8 +1,10 @@
 ;(function() {
-  var settings = ['userId', 'userToken', 'accountId', 'accountToken', 'accountUrl'];
+  var settings = ['accountUrl', 'accountToken'];
 
   chrome.storage.local.get(settings, function(o) {
-    if(!o.accountUrl || document.location.href.indexOf(o.accountUrl) === -1) {
+    if(!o.accountUrl || !o.accountToken) {
+      return;
+    } else if(document.location.hostname.indexOf(o.accountUrl) === -1) {
       return;
     }
 
@@ -12,12 +14,7 @@
  \
       win[chmln] || (win[chmln] = {}); \
       win[chmln].accountToken = '"+o.accountToken+"'; \
-      win[chmln].location = win.location.href.toString(); \
       win[chmln].adminPreview = true; \
-      win[chmln].auth = { \
-        user: { id: '"+o.userId+"', token: '"+o.userToken+"' }, \
-        account: { id: '"+o.accountId+"' } \
-      }; \
  \
       for(var i = 0; i<names.length; i++) { \
         (function() { \
@@ -29,7 +26,7 @@
       } \
  \
       var script = doc.createElement('script'); \
-      script.src = 'https://hyoid.trychameleon.com/messo/'+'"+o.accountToken+"'+'/messo.min.js?user-id='+'"+o.userId+"'+'&admin-preview=true'; \
+      script.src = 'https://fast.trychameleon.com/messo/'+'"+o.accountToken+"'+'/messo.min.js'; \
       script.async = true; \
       doc.head.appendChild(script); \
     })(document,window);";
