@@ -1,36 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Muli);
+
 body {
-  font-family: 'Helvetica', sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   font-size: 12px;
   color: #666;
 }
 
-
-form {
-  width: 230px;
-}
+h1, h2, h3, h4, h5, h6 { font-family: Lato, Arial, sans-serif; }
 
 label {
   display: block;
+  margin: 10px 7px 3px 0;
+  float: left;
 }
 
 input {
-  border-radius: 3px;
-  border: 1px solid #eee;
+  outline: none;
+  border:1px solid #D1D3D0;
+  border-radius: 4px;
+  padding: 5px 13px;
   margin-top: 5px;
   font-size: 15px;
-  margin-bottom: 5px;
+  width: 270px;
+  height: 27px;
+  color: #666;
+}
+
+.question-sign {
+  color: white;
+  font-size: 11px;
+  width: 7px;
+  height: 10px;
+  background-color: #666;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 1px 0 1px 5px;
+  float: left;
+  margin-top: 9px;
+}
+
+.question-sign span {
+  font-size: 9px;
+  position: relative;
+  top: -3px;
+  left: -1px;
+}
+
+.URL-icon, .token-icon {
+  cursor: default;
+  width: 275px;
+  border: 1px solid #D1D3D0;
+  border-radius: 4px;
+  color: #141514;
+  position: absolute;
+  background-color: white;
   padding: 5px;
-  width: 95%;
+  left: 10px;
+  box-shadow: 0 2px 6px 0 #666;
+}
+
+.token-icon {
+  display: none;
+  top: 68px;
+}
+
+.URL-icon {
+  display: none;
+  top: 140px;
+}
+
+.URL-icon:hover,
+.token-icon:hover,
+.question-sign:hover .URL-icon,
+.question-sign:hover .token-icon {
+  display: block;
+}
+
+form {
+  width: 300px;
 }
 
 button {
-  width: 100%; height: 35px; margin-top: 10px; font-size: 14px;
-  border-radius: 3px;
+  width: 100%;
+  height: 34px;
+  margin-top: 17px;
+  font-size: 14px;
+  border: 1px solid #86ba58;
+  border-radius: 4px;
   background-color: #86ba58;
-  border: 0;
-  color: white;
+  color: #fff;
 }
 
-button:focus, button:active, button:hover {
-  background-color: #618c3a;
+button:hover, button:focus {
+  background-color: #64923c;
+  border:1px solid #64923c;
+}
+
+button:focus {
+  outline: none;
 }

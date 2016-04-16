@@ -9,11 +9,23 @@
     <form id="popup-form">
       <h3>Chameleon preview configuration</h3>
 
-      <label for="token">Account token</label>
-      <input  id="token" type="text" name="token" placeholder="Tt38sj-kSnF1rX">
+      <div>
+        <label for="token">Account token</label>
+        <div class="question-sign"><span>?</span>
+          <div  class="token-icon">Your account token can be found on https://dashboard.trychameleon.com/docs in last portion of your snippet</div>
+        </div>
+        <div style="clear: both"></div>
+        <input  id="token" type="text" name="token" placeholder="Tt38sj-kSnF1rX">
+      </div>
 
-      <label for="url">What domain to display on</label>
-      <input  id="url" type="text" name="url" placeholder="sub.example.com">
+      <div>
+        <label for="url">What domain to display on</label>
+        <div class="question-sign"><span>?</span>
+          <div class="URL-icon">We show the editor on pages of the specified domain (and sub domain)</div>
+        </div>
+        <div style="clear: both"></div>
+        <input  id="url" type="text" name="url" placeholder="sub.example.com">
+      </div>
 
       <button type="submit">Save</button>
     </form>

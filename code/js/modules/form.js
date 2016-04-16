@@ -7,14 +7,19 @@ var $ = require('../libs/jquery'),
 
 module.exports = function(callback) {
   $(function() {
-    $('#popup-form').on('submit', function(e) {
+    var $form = $('#popup-form'),
+      $token = $('#token'),
+      $url = $('#url');
+
+    chrome.storage.local.get(['accountToken', 'accountUrl'], function(o) {
+      o.accountToken && $token.val(o.accountToken);
+      o.accountUrl && $url.val(o.accountUrl) && setTimeout(function() { $url.focus(); }, 10);
+    });
+
+    $form.on('submit', function(e) {
       e.stopPropagation(); e.preventDefault();
 
-      $(this).blur();
-
-      var $token = $('#token'),
-        $url = $('#url'),
-        token = $token.val(),
+      var token = $token.val(),
         url = $url.val(),
         options = {},
         close = function() { setTimeout(window.close.bind(window), 350) };
