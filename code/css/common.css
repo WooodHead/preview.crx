@@ -48,7 +48,7 @@ input {
 
 .URL-icon, .token-icon {
   cursor: default;
-  width: 275px;
+  width: 210px;
   border: 1px solid #D1D3D0;
   border-radius: 4px;
   color: #141514;
@@ -77,7 +77,7 @@ input {
 }
 
 form {
-  width: 300px;
+  width: 240px;
 }
 
 button {
