@@ -21,7 +21,7 @@ input {
   padding: 5px 13px;
   margin-top: 5px;
   font-size: 15px;
-  width: 270px;
+  width: 210px;
   height: 27px;
   color: #666;
 }
@@ -48,7 +48,7 @@ input {
 
 .URL-icon, .token-icon {
   cursor: default;
-  width: 210px;
+  width: 220px;
   border: 1px solid #D1D3D0;
   border-radius: 4px;
   color: #141514;
