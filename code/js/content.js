@@ -49,11 +49,8 @@
   }
 
   function updateSettings() {
-    if(urlUpdated || tokenUpdated) {
-      return;
-    }
-
-    var account = JSON.parse(document.querySelector('#dashboard-data').getAttribute('data-account')),
+    var newConfig = !accountToken,
+      account = JSON.parse(document.querySelector('#dashboard-data').getAttribute('data-account')),
       token = account.tokens[account.tokens.length-1],
       url = account.url,
       options = {};
@@ -67,8 +64,10 @@
     }
 
     if(Object.keys(options).length) {
-      console.log('Automatically setting up the Chameleon Preview configuration token and url.');
+      var message = newConfig ? 'Automatically set up the Chameleon Preview configuration token and url.' :
+        'Automatically updated Chameleon Preview configuration';
 
+      console.log(message, options);
       chrome.storage.local.set(options, function() { });
     }
   }
