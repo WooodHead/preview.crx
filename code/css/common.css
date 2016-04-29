@@ -8,6 +8,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-family: Lato, Arial, sans-serif; }
 
+.hidden {
+  display: none;
+}
+
 label {
   display: block;
   margin: 10px 7px 3px 0;
@@ -25,6 +29,11 @@ input {
   width: 210px;
   height: 27px;
   color: #666;
+}
+
+#navigate-to {
+  margin-bottom: 3px;
+  margin-top: 15px;
 }
 
 .question-sign {
@@ -47,7 +56,7 @@ input {
   left: -1px;
 }
 
-.URL-icon, .token-icon {
+.URL-icon {
   cursor: default;
   width: 220px;
   border: 1px solid #D1D3D0;
@@ -60,20 +69,13 @@ input {
   box-shadow: 0 2px 6px 0 #666;
 }
 
-.token-icon {
-  display: none;
-  top: 68px;
-}
-
 .URL-icon {
   display: none;
-  top: 140px;
+  top: 75px;
 }
 
 .URL-icon:hover,
-.token-icon:hover,
-.question-sign:hover .URL-icon,
-.question-sign:hover .token-icon {
+.question-sign:hover .URL-icon {
   display: block;
 }
 

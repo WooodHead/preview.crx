@@ -1,8 +1,8 @@
 ;(function() {
-  var settings = ['accountUrl', 'accountToken', 'accountUrlAt', 'accountTokenAt'],
+  var settings = ['accountUrl', 'accountToken', 'accountUrlAt'],
     onDashboard = /dashboard\.trychameleon/.test(document.location.hostname),
     href = document.location.href,
-    accountToken, accountUrl, urlUpdated, tokenUpdated;
+    accountToken, accountUrl, urlUpdated;
 
   if(onDashboard) {
     document.addEventListener('dashboard-data', updateSettings);
@@ -14,7 +14,6 @@
     accountToken = o.accountToken;
     accountUrl = o.accountUrl;
     urlUpdated = o.accountUrlAt;
-    tokenUpdated = o.accountTokenAt;
 
     if(!onDashboard) {
       start();
@@ -55,7 +54,7 @@
       url = account.url,
       options = {};
 
-    if(!tokenUpdated && token && accountToken !== token) {
+    if(token && accountToken !== token) {
       accountToken = options.accountToken = token;
     }
 
