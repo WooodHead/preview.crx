@@ -1,7 +1,8 @@
 {
-  "name": "chameleon-admin-preview",
-  "version": "0.9.2",
-  "description": "A simple Chrome extension that shows Chameleon on your site.",
+  "name": "Chameleon Tour Builder Sidebar",
+  "short_name": "Tour Builder",
+  "version": "0.9.3",
+  "description": "A Chrome extension that loads the Chameleon Sidebar locally (on your browser) for any site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",
   "dependencies": {
