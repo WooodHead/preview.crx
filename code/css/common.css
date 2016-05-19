@@ -23,10 +23,9 @@ input {
   border:1px solid #D1D3D0;
   border-radius: 4px;
   padding: 5px 7px;
-  margin-top: 5px;
   line-height: 20px;
   font-size: 15px;
-  width: 210px;
+  width: 224px;
   height: 27px;
   color: #666;
 }
@@ -47,6 +46,9 @@ input {
   padding: 1px 0 1px 5px;
   float: left;
   margin-top: 9px;
+  position: relative;
+  left: 45px;
+  top: -27px;
 }
 
 .question-sign span {
@@ -65,13 +67,13 @@ input {
   position: absolute;
   background-color: white;
   padding: 5px;
-  left: 10px;
+  left: -35px;
   box-shadow: 0 2px 6px 0 #666;
 }
 
 .URL-icon {
   display: none;
-  top: 75px;
+  top: 15px;
 }
 
 .URL-icon:hover,
