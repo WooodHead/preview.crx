@@ -1,7 +1,7 @@
 {
   "name": "Chameleon Tour Builder Sidebar",
   "short_name": "Tour Builder",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A Chrome extension that loads the Chameleon Sidebar locally (on your browser) for any site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",

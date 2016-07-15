@@ -1,7 +1,7 @@
 ;(function() {
   var settings = ['accountUrl', 'accountToken', 'accountUrlAt'],
     onDashboard = /dashboard\.trychameleon/.test(document.location.hostname),
-    href = document.location.href,
+    hostname = document.location.hostname,
     accountToken, accountUrl, urlUpdated;
 
   if(onDashboard) {
@@ -23,7 +23,7 @@
   function start() {
     if (!accountToken || !accountUrl) {
       return;
-    } else if (href.indexOf(accountUrl.replace(/https?:\/\//, '')) === -1) {
+    } else if (hostname.indexOf(accountUrl.replace(/https?:\/\//, '')) === -1) {
       return;
     }
 

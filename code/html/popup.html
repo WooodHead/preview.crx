@@ -8,20 +8,20 @@
   <body>
     <div id="token" class="hidden"></div>
     <form id="popup-form">
-      <h3>Build tours with Chameleon</h3>
-
+      <div id="icon" class="chmln-icon-branding">
+        <img src=../images/icon-textual.png/>
+      </div>
+      <h3 id="title">Display Chameleon Sidebar</h3>
+      <div class="chmln-horizontal-line"></div>
       <div>
-        <label for="url">Use this extension to display the Chameleon Sidebar on the domain below.</label>
-        <div class="question-sign"><span>?</span>
-          <div class="URL-icon">Editor will show on all pages of this domain and subdomain. Change at any time.</div>
-        </div>
+        <label for="url">Add domain on which you would like to see the Sidebar</label>
+        <!-- <div class="question-sign"><span>?</span></div>-->
+        <div class="URL-icon">Editor will show on all pages of this domain and subdomain. Change at any time.</div>
         <div style="clear: both"></div>
         <input  id="url" type="text" name="url" placeholder="your.product.com">
       </div>
-
       <h4 id="navigate-to" class="hidden">Navigate to <a href="https://dashboard.trychameleon.com/docs/preview" target="chmln-preview">our docs page</a> to automatically configure Chameleon.</h4>
-
-      <button type="submit">Save</button>
+      <button type="submit">Launch sidebar</button>
     </form>
   </body>
 </html>

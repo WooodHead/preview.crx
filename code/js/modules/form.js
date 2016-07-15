@@ -7,11 +7,16 @@ var $ = require('../libs/jquery');
 module.exports = function(callback) {
   $(function() {
     var $form = $('#popup-form'),
+      $icon = $('#icon'),
       $url = $('#url'), originalUrl;
 
     chrome.storage.local.get(['accountUrl', 'accountToken'], function(o) {
       o.accountUrl && $url.val(o.accountUrl) && (originalUrl = o.accountUrl);
       o.accountToken ? $('#token').text(o.accountToken) : $('#navigate-to').removeClass('hidden');
+    });
+
+    $icon.on('click', function() {
+      chrome.tabs.create({ url: 'https://dashboard.trychameleon.com' });
     });
 
     $form.on('submit', function(e) {
@@ -30,6 +35,10 @@ module.exports = function(callback) {
       } else {
         close(150);
       }
+
+      /https?:\/\//.test(url) || (url = 'http://'+url);
+
+      chrome.tabs.create({ url: url });
     });
   });
 };
