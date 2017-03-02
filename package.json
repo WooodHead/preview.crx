@@ -1,7 +1,7 @@
 {
   "name": "Chameleon Tours Editor",
   "short_name": "Tours Editor",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "A Chrome extension that adds the Chameleon Editor to any site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",
