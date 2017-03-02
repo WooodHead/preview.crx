@@ -1,6 +1,6 @@
 ;(function() {
   var settings = ['accountUrl', 'accountToken', 'accountUrlAt'],
-    onDashboard = /dashboard\.trychameleon/.test(document.location.hostname),
+    onDashboard = /(www|dashboard|statamic(-dev)?)\.trychameleon/.test(document.location.hostname),
     hostname = document.location.hostname,
     accountToken, accountUrl, urlUpdated;
 
@@ -51,7 +51,7 @@
     var newConfig = !accountToken,
       account = JSON.parse(document.querySelector('#dashboard-data').getAttribute('data-account')),
       token = account.tokens[account.tokens.length-1],
-      url = account.url,
+      url = account.domain,
       options = {};
 
     if(token && accountToken !== token) {
