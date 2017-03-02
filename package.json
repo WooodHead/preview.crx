@@ -1,8 +1,8 @@
 {
-  "name": "Chameleon Tour Builder Sidebar",
-  "short_name": "Tour Builder",
-  "version": "0.9.5",
-  "description": "A Chrome extension that loads the Chameleon Sidebar locally (on your browser) for any site.",
+  "name": "Chameleon Tours Editor",
+  "short_name": "Tours Editor",
+  "version": "0.9.6",
+  "description": "A Chrome extension that adds the Chameleon Editor to any site.",
   "repository": "git@github.com:trychameleon/preview.crx.git",
   "license": "MIT",
   "dependencies": {
